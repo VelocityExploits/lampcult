@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Cult</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #121212;
+      color: #e0e0e0;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+
+    /* Form Container */
+    .form-container {
+      background: #222;
+      padding: 30px;
+      border-radius: 15px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .form-container h1 {
+      font-size: 2em;
+      color: #ffdd57;
+      text-shadow: 0 0 10px #ffdd57;
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 80%;
+      padding: 10px;
+      margin-top: 20px;
+      background: #333;
+      border: 1px solid #ff5500;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .form-container button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background-color: #ff5500;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #ff8800;
+    }
+
+    /* Video Styling */
+    #cult-video {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container" id="form-container">
+    <h1>Enter Your Info</h1>
+    <form id="cult-form">
+      <input type="text" id="name" placeholder="Full Name" required><br>
+      <select id="drugs" required>
+        <option value="">Do you use alcohol or drugs?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+      <select id="smoking" required>
+        <option value="">Do you smoke?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+      <input type="number" id="age" placeholder="Age" required><br>
+      <select id="body-type" required>
+        <option value="">Body Type</option>
+        <option value="fat">Fat</option>
+        <option value="average">Average</option>
+        <option value="skinny">Skinny</option>
+      </select><br>
+      <button type="submit">Join Now</button>
+    </form>
+  </div>
+
+  <video id="cult-video" autoplay>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const form = document.getElementById('cult-form');
+    const formContainer = document.getElementById('form-container');
+    const videoPlayer = document.getElementById('cult-video');
+
+    // Remove controls to disable user interaction
+    videoPlayer.removeAttribute('controls');
+
+    // Function to request fullscreen
+    function goFullscreen() {
+      if (videoPlayer.requestFullscreen) {
+        videoPlayer.requestFullscreen();
+      } else if (videoPlayer.mozRequestFullScreen) { // Firefox
+        videoPlayer.mozRequestFullScreen();
+      } else if (videoPlayer.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        videoPlayer.webkitRequestFullscreen();
+      } else if (videoPlayer.msRequestFullscreen) { // IE/Edge
+        videoPlayer.msRequestFullscreen();
+      }
+    }
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Hide the form and show the video
+      formContainer.style.display = 'none';
+      videoPlayer.style.display = 'block';
+      videoPlayer.play();
+      goFullscreen(); // Activate fullscreen when video starts
+    });
+
+    // Close the browser window when the video ends
+    videoPlayer.addEventListener('ended', function() {
+      window.close();
+    });
+  </script>
+</body>
+</html>

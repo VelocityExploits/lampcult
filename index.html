@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to the Lamp Cult</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #121212;
+      color: #e0e0e0;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+
+    /* Main Container */
+    .cult-container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Title Styling */
+    .title {
+      font-size: 3em;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: #ffdd57;
+      text-shadow: 0 0 10px #ffdd57, 0 0 20px #ff8800, 0 0 30px #ff5500;
+      animation: flicker 2s infinite;
+    }
+
+    /* Subtext Styling */
+    .subtext {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #bbb;
+      opacity: 0.8;
+    }
+
+    /* Join Button Styling */
+    .join-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      background-color: #ff5500;
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .join-button:hover {
+      background-color: #ff8800;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+      70% { opacity: 0.9; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cult-container">
+    <div class="title">Join the Lamp Cult</div>
+    <div class="subtext">Embrace the light. Follow the glow.</div>
+    <a href="yes.html"><button class="join-button">Join</button></a>
+  </div>
+</body>
+</html>
